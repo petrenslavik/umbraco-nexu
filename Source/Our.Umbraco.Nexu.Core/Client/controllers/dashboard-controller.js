@@ -36,8 +36,8 @@
 
         $scope.getUnusedMedia = function () {
             nexuResource.getUnusedMedia()
-                .then(function (result) {
-                    $scope.links = result;
+                .then(function ({ data }) {
+                    $scope.links = data;
                 });
         };
 

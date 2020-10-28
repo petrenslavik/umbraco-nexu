@@ -287,9 +287,11 @@
     <Compile Include="Mapping\TypeConverters\RelationsToRelatedDocumentsConverter.cs" />
     <Compile Include="Models\LinkedDocumentEntity.cs" />
     <Compile Include="Models\LinkedMediaEntity.cs" />
+    <Compile Include="Models\MediaItemWrapper.cs" />
     <Compile Include="Models\PropertyWithParser.cs" />
     <Compile Include="Models\RebuildStatus.cs" />
     <Compile Include="Models\RelatedDocument.cs" />
+    <Compile Include="Models\UnusedMedia.cs" />
     <Compile Include="NexuContext.cs" />
     <Compile Include="NexuService.cs" />
     <Compile Include="ObjectResolution\GridEditorParserResolver.cs" />

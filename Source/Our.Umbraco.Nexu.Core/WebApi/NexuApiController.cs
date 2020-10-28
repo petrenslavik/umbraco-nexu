@@ -188,23 +188,23 @@ namespace Our.Umbraco.Nexu.Core.WebApi
         public HttpResponseMessage GetUnusedMediaItems()
         {
             var mediaItems = mediaService.GetRootMedia();
-            var unusedItems = new List<IMedia>();
+            var unusedItems = new List<MediaItemWrapper>();
             foreach (var mediaItem in mediaItems)
             {
-                unusedItems.AddRange(GetUnusedMediaItems(mediaItem));
+                unusedItems.AddRange(GetUnusedMediaItems(new MediaItemWrapper(mediaItem)));
             }
-            return this.Request.CreateResponse(HttpStatusCode.OK, unusedItems);
+            return this.Request.CreateResponse(HttpStatusCode.OK, unusedItems.Select(x => x.Model));
         }
 
-        private List<IMedia> GetUnusedMediaItems(IMedia root)
+        private List<MediaItemWrapper> GetUnusedMediaItems(MediaItemWrapper root)
         {
-            var unusedItems = new List<IMedia>();
-            var childs = root.Children();
+            var unusedItems = new List<MediaItemWrapper>();
+            var childs = root.Media.Children();
             bool found = false;
             foreach (var mediaItem in childs)
             {
                 found = true;
-                var items = GetUnusedMediaItems(mediaItem);
+                var items = GetUnusedMediaItems(new MediaItemWrapper(mediaItem, root));
                 unusedItems.AddRange(items);
             }
 
@@ -213,8 +213,8 @@ namespace Our.Umbraco.Nexu.Core.WebApi
                 return unusedItems;
             }
 
-            var relations = this.nexuService.GetNexuRelationsForContent(root.Id, false);
-            if (relations.Count() != 0)
+            var relations = this.nexuService.GetNexuRelationsForContent(root.Media.Id, false);
+            if (!relations.Any())
                 unusedItems.Add(root);
             return unusedItems;
 
