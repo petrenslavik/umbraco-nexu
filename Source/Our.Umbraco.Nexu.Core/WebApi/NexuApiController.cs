@@ -183,6 +183,23 @@ namespace Our.Umbraco.Nexu.Core.WebApi
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
+
+        [HttpGet]
+        public HttpResponseMessage GetUnusedMediaItems()
+        {
+            var mediaItems = mediaService.GetRootMedia();
+            var unusedItems = new List<IMedia>();
+            foreach (var mediaItem in mediaItems)
+            {
+                var relations = this.nexuService.GetNexuRelationsForContent(mediaItem.Id, false);
+
+                if (!relations.Any())
+                {
+                    unusedItems.Add(mediaItem);
+                }
+            }
+            return this.Request.CreateResponse(HttpStatusCode.OK, unusedItems);
+        }
         /// <summary>
         /// Rebuild job
         /// </summary>
