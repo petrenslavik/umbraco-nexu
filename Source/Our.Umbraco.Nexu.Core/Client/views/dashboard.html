@@ -9,6 +9,9 @@
                 <a class="btn" ng-click="rebuild()" prevent-default>
                     <localize key="nexu_dashboardRebuild">Rebuild nexu relations</localize>
                 </a>
+                <a class="btn" ng-click="getUnusedMedia()" prevent-default>
+                    <localize key="nexu_dashboardUnusedMedia">Get unused media</localize>
+                </a>
             </div>
         </div>
         <div ng-show="RebuildStatus.IsProcessing">
@@ -21,7 +24,11 @@
                     <localize key="nexu_dashboardRefresh">Refresh status</localize>
                 </a>
             </p>
-
         </div>
+        <ul class="nexu-links">
+            <li ng-repeat="link in links">
+                {{link.Name}}
+            </li>
+        </ul>
     </div>
 </div>

@@ -16,5 +16,6 @@
     <key alias="preventUnplisheDescription">Unpublishing of used content is</key>
     <key alias="allowed">allowed</key>
     <key alias="prevented">prevented</key>
+    <key alias="dashboardUnusedMedia">Get unused media</key>
   </area>
 </language>

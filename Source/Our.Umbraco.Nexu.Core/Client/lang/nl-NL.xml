@@ -16,5 +16,6 @@
     <key alias="preventUnplisheDescription">Depubliceren van gebruikte content is</key>
     <key alias="allowed">toegestaan</key>
     <key alias="prevented">niet toegestaan</key>
+	<key alias="dashboardUnusedMedia">Haal ongebruikte media</key>
   </area>
 </language>

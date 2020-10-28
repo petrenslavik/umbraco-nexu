@@ -7,6 +7,7 @@
             ItemsProcessed : 0
         };
 
+        $scope.links = [];
         $scope.autoRefresh = true;
 
         $scope.preventDelete = Umbraco.Sys.ServerVariables.Nexu.PreventDelete;
@@ -31,6 +32,13 @@
                 });
 
             $timeout(function () { $scope.getRebuildStatus() }, 500, true);
+        };
+
+        $scope.getUnusedMedia = function () {
+            nexuResource.getUnusedMedia()
+                .then(function (result) {
+                    $scope.links = result;
+                });
         };
 
         $scope.$watch('autoRefresh', function () {

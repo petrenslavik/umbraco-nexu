@@ -16,5 +16,6 @@
     <key alias="preventUnplisheDescription">Avpublicering av noder är</key>
     <key alias="allowed">tillåtet</key>
     <key alias="prevented">förbjudet</key>
+	<key alias="dashboardUnusedMedia">Få oanvända medier</key>
   </area>
 </language>
