@@ -31,3 +31,17 @@ build_script:
 artifacts:
   - path: artifacts\*.nupkg
   - path: artifacts\*.zip
+  
+
+
+deploy:    
+ # GitHub Deployment for releases
+  - provider: GitHub
+    auth_token:
+      secure: 5950efbce165ec0ce75a659499042d4f1856c387
+    artifact: /.*\.zip/            # upload all Zip packages to release assets
+    draft: false
+    prerelease: false
+    on:
+      branch: master-v7
+      appveyor_repo_tag: true        # deploy on tag push only
