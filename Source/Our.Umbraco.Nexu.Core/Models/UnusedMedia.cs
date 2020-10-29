@@ -12,6 +12,6 @@ namespace Our.Umbraco.Nexu.Core.Models
         public string Name { get; set; }
         public string Path { get; set; }
         public int Id { get; set; }
-        public PropertyCollection Properties { get; internal set; }
+        public string Source { get; set; }
     }
 }

@@ -37,6 +37,7 @@
                     <th>Index</th>
                     <th>Name</th>
                     <th>Path</th>
+                    <th>Source</th>
                     <th>ToRemove</th>
                 </tr>
                 </thead>
@@ -45,6 +46,7 @@
                     <td>{{$index + 1}}</td>
                     <td>{{link.Name}}</td>
                     <td>{{link.Path}}</td>
+                    <td><a href="{{link.Source}}">Source</a></td>
                     <td><input type="checkbox" ng-model="links[$index].ToRemove"/></td>
                 </tr>
                 </tbody>
