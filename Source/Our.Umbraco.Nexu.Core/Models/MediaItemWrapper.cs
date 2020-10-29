@@ -20,7 +20,7 @@ namespace Our.Umbraco.Nexu.Core.Models
                 Name = media.Name, 
                 Path = $"{previous.Model.Path}/{media.Name}",
                 Id = media.Id,
-                Source = media.Properties["umbracoFile"].Value.ToString()
+                Source = media.GetValue<string>("umbracoFile")
             };
         }
 
@@ -32,7 +32,7 @@ namespace Our.Umbraco.Nexu.Core.Models
                 Name = media.Name,
                 Path = $"{media.Name}",
                 Id = media.Id,
-                Source = media.Properties["umbracoFile"].Value.ToString()
+                Source = media.GetValue<string>("umbracoFile")
             };
         }
     }
