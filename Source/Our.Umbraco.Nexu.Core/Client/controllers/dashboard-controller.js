@@ -9,6 +9,7 @@
 
         $scope.links = [];
         $scope.autoRefresh = true;
+        $scope.exceptionListSource = null;
 
         $scope.preventDelete = Umbraco.Sys.ServerVariables.Nexu.PreventDelete;
         $scope.preventUnPublish = Umbraco.Sys.ServerVariables.Nexu.PreventUnPublish;
@@ -37,7 +38,10 @@
         $scope.getUnusedMedia = function () {
             nexuResource.getUnusedMedia()
                 .then(function ({ data }) {
-                    data.forEach((x) => { x.ToRemove = true });
+                    data.forEach((x) => {
+                        x.ToRemove = true;
+                        x.Source = JSON.parse(x.Source).src;
+                    });
                     $scope.links = data;
                 });
         };
@@ -64,6 +68,12 @@
                 $scope.getRebuildStatus();
             }
         }, true);
+
+
+        $scope.showContent = function ( fileContent, fileName ) {
+            $scope.exceptionListSource = fileName;
+            console.log(content);
+        }
 
         $scope.getRebuildStatus();
 

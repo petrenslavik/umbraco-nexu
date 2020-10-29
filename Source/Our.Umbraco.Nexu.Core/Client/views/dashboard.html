@@ -1,6 +1,6 @@
 ﻿<div ng-controller="Our.Umbraco.Nexu.DashboardController">
     <div ng-hide="isLoading">
-        <div ng-hide="RebuildStatus.IsProcessing">
+        <div ng-hide="RebuildStatus.IsProcessing" class="nexu-container">
             <div class="btn-group">
                 <a class="btn" ng-click="rebuild()" prevent-default>
                     <localize key="nexu_dashboardRebuild">Rebuild relations</localize>
@@ -11,9 +11,11 @@
                 <a class="btn" ng-click="deleteUnusedMedia()" ng-disabled="links.length == 0" prevent-default>
                     Delete found media
                 </a>
-                <a class="btn" ng-click="loadExceptionList()" prevent-default>
-                    Load exception list
-                </a>
+                <input class="hidden-input" id="exceptionListLoader" type="file" class="btn" on-read-file="showContent( fileContent, fileName )" >
+                    <label class="input-label btn" for="exceptionListLoader">Load exception list</label>
+            </div> 
+            <div class="input-source" ng-show="exceptionListSource">
+                {{exceptionListSource}}
             </div>
         </div>
         <div ng-show="RebuildStatus.IsProcessing">
@@ -33,22 +35,22 @@
             <table class="table">
                 <caption>Unused media</caption>
                 <thead>
-                <tr>
-                    <th>Index</th>
-                    <th>Name</th>
-                    <th>Path</th>
-                    <th>Source</th>
-                    <th>ToRemove</th>
-                </tr>
+                    <tr>
+                        <th>Index</th>
+                        <th>Name</th>
+                        <th>Path</th>
+                        <th>Source</th>
+                        <th>ToRemove</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="link in links">
-                    <td>{{$index + 1}}</td>
-                    <td>{{link.Name}}</td>
-                    <td>{{link.Path}}</td>
-                    <td><a href="{{link.Source}}">Source</a></td>
-                    <td><input type="checkbox" ng-model="links[$index].ToRemove"/></td>
-                </tr>
+                    <tr ng-repeat="link in links">
+                        <td>{{$index + 1}}</td>
+                        <td>{{link.Name}}</td>
+                        <td>{{link.Path}}</td>
+                        <td><a href="{{link.Source}}">Source</a></td>
+                        <td><input type="checkbox" ng-model="links[$index].ToRemove" /></td>
+                    </tr>
                 </tbody>
             </table>
         </div>

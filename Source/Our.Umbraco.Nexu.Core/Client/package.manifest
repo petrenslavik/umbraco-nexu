@@ -22,6 +22,7 @@
     "~/App_Plugins/Nexu/controllers/dashboard-controller.js",
     "~/App_Plugins/Nexu/directives/nexuLinks.js",
     "~/App_Plugins/Nexu/directives/nexuDescendantsWarning.js",
+    "~/App_Plugins/Nexu/directives/upload.js",
     "~/App_Plugins/Nexu/controllers/property-editor-controller.js",
     "~/App_Plugins/Nexu/controllers/confirmunpublish-controller.js"
   ],
