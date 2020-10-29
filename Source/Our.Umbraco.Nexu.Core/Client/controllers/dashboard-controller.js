@@ -41,6 +41,14 @@
                 });
         };
 
+        $scope.deleteUnusedMedia = function () {
+            let ids = $scope.links.map(x => x.id);
+            nexuResource.deleteUnusedMedia(ids)
+                .then(function () {
+                    $scope.links = [];
+                });
+        };
+
         $scope.$watch('autoRefresh', function () {
             if ($scope.autoRefresh === true) {
                 $scope.getRebuildStatus();

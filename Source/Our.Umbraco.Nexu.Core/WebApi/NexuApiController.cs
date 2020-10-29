@@ -196,6 +196,15 @@ namespace Our.Umbraco.Nexu.Core.WebApi
             return this.Request.CreateResponse(HttpStatusCode.OK, unusedItems.Select(x => x.Model));
         }
 
+        [HttpPost]
+        public HttpResponseMessage DeleteUnusedMedia(int[] ids)
+        {
+            foreach (var id in ids)
+            {
+                mediaService.Delete(mediaService.GetById(id));
+            }
+            return new HttpResponseMessage(HttpStatusCode.OK);
+        }
         private List<MediaItemWrapper> GetUnusedMediaItems(MediaItemWrapper root)
         {
             var unusedItems = new List<MediaItemWrapper>();

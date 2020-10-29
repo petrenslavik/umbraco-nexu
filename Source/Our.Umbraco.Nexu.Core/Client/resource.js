@@ -19,6 +19,9 @@
                 },
                 getUnusedMedia : function() {
                     return $http.get(Umbraco.Sys.ServerVariables.Nexu.GetUnusedMedia);
+                },
+                deleteUnusedMedia: function(ids) {
+                    return $http.post(Umbraco.Sys.ServerVariables.Nexu.DeleteUnusedMedia, ids);
                 }
             };
         });

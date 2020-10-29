@@ -108,6 +108,7 @@ namespace Our.Umbraco.Nexu.Core
             urlDictionairy.Add("GetUnusedMedia", urlHelper.GetUmbracoApiService<NexuApiController>("GetUnusedMediaItems", null));
             urlDictionairy.Add("PreventDelete", NexuContext.Current.PreventDelete);
             urlDictionairy.Add("PreventUnPublish", NexuContext.Current.PreventUnPublish);
+            urlDictionairy.Add("DeleteUnusedMedia", urlHelper.GetUmbracoApiService<NexuApiController>("DeleteUnusedMedia", null));
 
             if (!e.Keys.Contains("Nexu"))
             {
