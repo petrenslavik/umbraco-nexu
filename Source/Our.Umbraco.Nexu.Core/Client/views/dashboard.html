@@ -1,19 +1,18 @@
 ﻿<div ng-controller="Our.Umbraco.Nexu.DashboardController">
     <div ng-hide="isLoading">
-        <div>
-            <p><localize key="nexu_preventDeleteDescription">Deleting of used content is</localize> <span ng-if="preventDelete"><localize key="nexu_prevented">prevented</localize></span><span ng-if="!preventDelete"><localize key="nexu_allowed">allowed</localize></span></p>
-            <p><localize key="nexu_preventUnplisheDescription">Unpublishing of used content is</localize> <span ng-if="preventDelete"><localize key="nexu_prevented">prevented</localize></span><span ng-if="!preventDelete"><localize key="nexu_allowed">allowed</localize></span></p>
-        </div>
         <div ng-hide="RebuildStatus.IsProcessing">
             <div class="btn-group">
                 <a class="btn" ng-click="rebuild()" prevent-default>
-                    <localize key="nexu_dashboardRebuild">Rebuild nexu relations</localize>
+                    <localize key="nexu_dashboardRebuild">Rebuild relations</localize>
                 </a>
                 <a class="btn" ng-click="getUnusedMedia()" prevent-default>
                     <localize key="nexu_dashboardUnusedMedia">Get unused media</localize>
                 </a>
                 <a class="btn" ng-click="deleteUnusedMedia()" ng-disabled="links.length == 0" prevent-default>
                     Delete found media
+                </a>
+                <a class="btn" ng-click="loadExceptionList()" prevent-default>
+                    Load exception list
                 </a>
             </div>
         </div>

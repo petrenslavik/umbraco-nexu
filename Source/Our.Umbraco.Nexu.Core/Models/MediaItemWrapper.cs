@@ -19,7 +19,8 @@ namespace Our.Umbraco.Nexu.Core.Models
             {
                 Name = media.Name, 
                 Path = $"{previous.Model.Path}/{media.Name}",
-                Id = media.Id
+                Id = media.Id,
+                Properties = media.Properties
             };
         }
 
@@ -30,7 +31,8 @@ namespace Our.Umbraco.Nexu.Core.Models
             {
                 Name = media.Name,
                 Path = $"{media.Name}",
-                Id = media.Id
+                Id = media.Id,
+                Properties = media.Properties
             };
         }
     }

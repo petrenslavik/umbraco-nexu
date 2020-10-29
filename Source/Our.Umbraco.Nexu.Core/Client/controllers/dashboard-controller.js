@@ -4,7 +4,7 @@
         $scope.RebuildStatus = {
             IsProcessing: true,
             ItemName: '',
-            ItemsProcessed : 0
+            ItemsProcessed: 0
         };
 
         $scope.links = [];
@@ -13,21 +13,21 @@
         $scope.preventDelete = Umbraco.Sys.ServerVariables.Nexu.PreventDelete;
         $scope.preventUnPublish = Umbraco.Sys.ServerVariables.Nexu.PreventUnPublish;
 
-        $scope.getRebuildStatus = function() {
+        $scope.getRebuildStatus = function () {
             nexuResource.getRebuildStatus()
-                .then(function(result) {
+                .then(function (result) {
                     $scope.isLoading = false;
                     $scope.RebuildStatus = result.data;
 
                     if ($scope.RebuildStatus.IsProcessing && $scope.autoRefresh) {
-                        $timeout(function() { $scope.getRebuildStatus() }, 5000, true);
+                        $timeout(function () { $scope.getRebuildStatus() }, 5000, true);
                     }
                 });
         };
 
-        $scope.rebuild = function() {
+        $scope.rebuild = function () {
             nexuResource.rebuild(-1)
-                .then(function(result) {
+                .then(function (result) {
                     $scope.getRebuildStatus();
                 });
 
@@ -43,10 +43,19 @@
         };
 
         $scope.deleteUnusedMedia = function () {
-            let ids = $scope.links.filter((x)=>x.ToRemove).map(x => x.Id);
+            let forDeleting = [];
+            let forLeaving = [];
+            $scope.links.forEach((x) => {
+                if (x.ToRemove) {
+                    forDeleting.push(x);
+                } else {
+                    forLeaving.push(x);
+                }
+            });
+            let ids = forDeleting.map(x => x.Id);
             nexuResource.deleteUnusedMedia(ids)
                 .then(function () {
-                    $scope.links = [];
+                    $scope.links = forLeaving;
                 });
         };
 
