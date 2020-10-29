@@ -37,12 +37,13 @@
         $scope.getUnusedMedia = function () {
             nexuResource.getUnusedMedia()
                 .then(function ({ data }) {
+                    data.forEach((x) => { x.ToRemove = true });
                     $scope.links = data;
                 });
         };
 
         $scope.deleteUnusedMedia = function () {
-            let ids = $scope.links.map(x => x.id);
+            let ids = $scope.links.filter((x)=>x.ToRemove).map(x => x.Id);
             nexuResource.deleteUnusedMedia(ids)
                 .then(function () {
                     $scope.links = [];

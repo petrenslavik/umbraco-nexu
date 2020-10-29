@@ -30,13 +30,15 @@
                 </a>
             </p>
         </div>
-        <div class="card" ng-show="links.length != 0">
+        <div ng-show="links.length != 0">
             <table class="table">
+                <caption>Unused media</caption>
                 <thead>
                 <tr>
                     <th>Index</th>
                     <th>Name</th>
                     <th>Path</th>
+                    <th>ToRemove</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -44,6 +46,7 @@
                     <td>{{$index + 1}}</td>
                     <td>{{link.Name}}</td>
                     <td>{{link.Path}}</td>
+                    <td><input type="checkbox" ng-model="links[$index].ToRemove"/></td>
                 </tr>
                 </tbody>
             </table>

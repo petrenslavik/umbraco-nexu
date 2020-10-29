@@ -29,7 +29,8 @@ namespace Our.Umbraco.Nexu.Core.Models
             Model = new UnusedMedia
             {
                 Name = media.Name,
-                Path = $"{media.Name}"
+                Path = $"{media.Name}",
+                Id = media.Id
             };
         }
     }
