@@ -75,7 +75,7 @@
         $scope.deleteUnusedMedia = function () {
             let forDeleting = [];
             let forLeaving = [];
-            $scope.links.forEach((x) => {
+            $scope.filteredMedia.forEach((x) => {
                 if (x.ToRemove) {
                     forDeleting.push(x);
                 } else {
@@ -85,7 +85,7 @@
             let ids = forDeleting.map(x => x.Id);
             nexuResource.deleteUnusedMedia(ids)
                 .then(function () {
-                    $scope.links = forLeaving;
+                    $scope.filteredMedia = forLeaving;
                 });
         };
 
