@@ -54,9 +54,12 @@
                     $scope.unusedMedia = data;
                     data.Data.forEach((x) => {
                         x.ToRemove = true;
-                        console.log(x);
                         if (x.Source) {
-                            x.Source = JSON.parse(x.Source).src;
+                            try {
+                                x.Source = JSON.parse(x.Source).src;
+                            } catch (ex) {
+                                console.log(ex);
+                            }
                             if ($scope.exceptionSources.indexOf(x.Source) > -1) {
                                 x.ToRemove = false;
                             }
