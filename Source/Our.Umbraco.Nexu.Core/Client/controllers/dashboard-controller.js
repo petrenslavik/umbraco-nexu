@@ -45,7 +45,6 @@
                 .then(function () {
                     $scope.getUnusedMediaStatus();
                 });
-            $timeout(function () { $scope.getUnusedMediaStatus() }, 500, true);
         };
 
         $scope.getUnusedMediaStatus = function() {
@@ -53,8 +52,8 @@
                 .then(function ({ data }) {
                     console.log(data);
                     $scope.unusedMedia = data;
-                    x.ToRemove = true;
                     data.Data.forEach((x) => {
+                        x.ToRemove = true;
                         console.log(x);
                         if (x.Source) {
                             x.Source = JSON.parse(x.Source).src;
