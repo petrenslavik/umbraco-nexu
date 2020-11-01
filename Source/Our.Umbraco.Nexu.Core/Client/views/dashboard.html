@@ -8,7 +8,7 @@
                 <a class="btn" ng-click="getUnusedMedia()" ng-disabled = "unusedMedia.IsProcessingMedia" prevent-default>
                     <localize key="nexu_dashboardUnusedMedia">Get unused media</localize>
                 </a>
-                <a class="btn" ng-click="deleteUnusedMedia()" ng-disabled="links.length == 0" prevent-default>
+                <a class="btn" ng-click="deleteUnusedMedia()" ng-disabled="filteredMedia.length == 0" prevent-default>
                     Delete found media
                 </a>
                 <input class="hidden-input" id="exceptionListLoader" type="file" class="btn" on-read-file="showContent( fileContent, fileName )" >
@@ -31,6 +31,7 @@
                 </a>
             </p>
         </div>
+        {{filteredMedia}}
         <div ng-show="filteredMedia.length != 0">
             <table class="table">
                 <caption>Unused media</caption>

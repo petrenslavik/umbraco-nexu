@@ -11,7 +11,7 @@
             IsProcessingMedia: false,
             Data : []
         };
-        $scope.filteredMedia = [],
+        $scope.filteredMedia = [];
         $scope.autoRefresh = true;
         $scope.exceptionListSource = null;
         $scope.exceptionSources = [];
@@ -51,8 +51,10 @@
         $scope.getUnusedMediaStatus = function() {
             nexuResource.getUnusedMediaStatus()
                 .then(function ({ data }) {
+                    console.log(data);
                     $scope.unusedMedia = data;
                     data.Data.forEach((x) => {
+                        console.log(x);
                         x.Source = JSON.parse(x.Source).src;
                         if ($scope.exceptionSources.indexOf(x.Source) > -1) {
                             x.ToRemove = false;
@@ -61,6 +63,7 @@
                         }
                     });
                     $scope.filteredMedia = data.Data;
+                    console.log($scope.filteredMedia);
                     if ($scope.unusedMedia.IsProcessingMedia) {
                         $timeout(function () { $scope.getUnusedMediaStatus() }, 5000, true);
                     }
