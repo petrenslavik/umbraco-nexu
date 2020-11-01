@@ -50,7 +50,7 @@
                         <td>{{link.Path}}</td>
                         <td ng-show="link.Source != null"><a href="{{link.Source}}">Source</a></td>
                         <td ng-show="link.Source == null">Source not available</td>
-                        <td><input type="checkbox" ng-model="links[$index].ToRemove" /></td>
+                        <td><input type="checkbox" ng-model="filteredMedia[$index].ToRemove" /></td>
                     </tr>
                 </tbody>
             </table>
