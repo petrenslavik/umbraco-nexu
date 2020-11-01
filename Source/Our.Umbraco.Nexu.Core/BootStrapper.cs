@@ -105,10 +105,11 @@ namespace Our.Umbraco.Nexu.Core
             urlDictionairy.Add("CheckMediaDescendantsForIncomingLinks", urlHelper.GetUmbracoApiService<NexuApiController>("CheckMediaDescendantsForIncomingLinks", null));
             urlDictionairy.Add("GetRebuildStatus", urlHelper.GetUmbracoApiService<NexuApiController>("GetRebuildStatus"));
             urlDictionairy.Add("Rebuild", urlHelper.GetUmbracoApiService<NexuApiController>("Rebuild", null));
-            urlDictionairy.Add("GetUnusedMedia", urlHelper.GetUmbracoApiService<NexuApiController>("GetUnusedMediaItems", null));
+            urlDictionairy.Add("GetUnusedMedia", urlHelper.GetUmbracoApiService<NexuApiController>("GetUnusedMedia", null));
             urlDictionairy.Add("PreventDelete", NexuContext.Current.PreventDelete);
             urlDictionairy.Add("PreventUnPublish", NexuContext.Current.PreventUnPublish);
             urlDictionairy.Add("DeleteUnusedMedia", urlHelper.GetUmbracoApiService<NexuApiController>("DeleteUnusedMedia", null));
+            urlDictionairy.Add("GetUnusedMediaStatus", urlHelper.GetUmbracoApiService<NexuApiController>("GetUnusedMediaStatus", null));
 
             if (!e.Keys.Contains("Nexu"))
             {

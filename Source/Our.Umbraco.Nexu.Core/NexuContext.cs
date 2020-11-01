@@ -1,4 +1,8 @@
-﻿namespace Our.Umbraco.Nexu.Core
+﻿using System.Collections.Concurrent;
+using System.Collections.Generic;
+using Our.Umbraco.Nexu.Core.Models;
+
+namespace Our.Umbraco.Nexu.Core
 {
     using System.Configuration;
 
@@ -26,6 +30,8 @@
             this.DocumentToMediaRelationTypeExists = false;
             this.PreventDelete = this.GetAppSetting<bool>(Constants.AppSettings.AllowDelete);
             this.PreventUnPublish = this.GetAppSetting<bool>(Constants.AppSettings.AllowUnPublish);
+            this.UnusedMedia = new ConcurrentBag<MediaItemWrapper>();
+            this.IsProcessingMedia = false;
             instance = this;
         }
 
@@ -34,6 +40,8 @@
         /// </summary>
         public static NexuContext Current => instance ?? new NexuContext();
 
+        public ConcurrentBag<MediaItemWrapper> UnusedMedia { get; set; }
+        public bool IsProcessingMedia { get; set; }
         /// <summary>
         /// Gets or sets a value indicating whether is processing.
         /// </summary>

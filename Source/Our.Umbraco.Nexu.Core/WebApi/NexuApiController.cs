@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using Umbraco.Core.Logging;
 
 namespace Our.Umbraco.Nexu.Core.WebApi
@@ -185,15 +186,20 @@ namespace Our.Umbraco.Nexu.Core.WebApi
 
 
         [HttpGet]
-        public HttpResponseMessage GetUnusedMediaItems()
+        public HttpResponseMessage GetUnusedMedia()
         {
-            var mediaItems = mediaService.GetRootMedia();
-            var unusedItems = new List<MediaItemWrapper>();
-            foreach (var mediaItem in mediaItems)
-            {
-                unusedItems.AddRange(GetUnusedMediaItems(new MediaItemWrapper(mediaItem)));
-            }
-            return this.Request.CreateResponse(HttpStatusCode.OK, unusedItems.Select(x => x.Model));
+            Thread backgroundRebuild = new Thread(FindUnusedMedia);
+            backgroundRebuild.IsBackground = true;
+            backgroundRebuild.Name = "NexuRebuildJob";
+            backgroundRebuild.Start();
+
+            return new HttpResponseMessage(HttpStatusCode.OK);
+        }
+
+        [HttpGet]
+        public HttpResponseMessage GetUnusedMediaStatus()
+        {
+            return this.Request.CreateResponse(HttpStatusCode.OK, new { NexuContext.Current.IsProcessingMedia, Data =  NexuContext.Current.UnusedMedia.Select(x=>x.Model)});
         }
 
         [HttpPost]
@@ -205,29 +211,38 @@ namespace Our.Umbraco.Nexu.Core.WebApi
             }
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
-        private List<MediaItemWrapper> GetUnusedMediaItems(MediaItemWrapper root)
+        private void GetUnusedMediaItems(MediaItemWrapper root)
         {
-            var unusedItems = new List<MediaItemWrapper>();
             var childs = root.Media.Children();
             bool found = false;
             foreach (var mediaItem in childs)
             {
                 found = true;
-                var items = GetUnusedMediaItems(new MediaItemWrapper(mediaItem, root));
-                unusedItems.AddRange(items);
+                GetUnusedMediaItems(new MediaItemWrapper(mediaItem, root));
             }
 
             if (found)
             {
-                return unusedItems;
+                return;
             }
 
             var relations = this.nexuService.GetNexuRelationsForContent(root.Media.Id, false);
             if (!relations.Any())
-                unusedItems.Add(root);
-            return unusedItems;
-
+                NexuContext.Current.UnusedMedia.Add(root);
         }
+
+        internal void FindUnusedMedia()
+        {
+            NexuContext.Current.UnusedMedia = new ConcurrentBag<MediaItemWrapper>();
+            NexuContext.Current.IsProcessingMedia = true;
+            var mediaItems = mediaService.GetRootMedia();
+            foreach (var mediaItem in mediaItems)
+            {
+                GetUnusedMediaItems(new MediaItemWrapper(mediaItem));
+            }
+            NexuContext.Current.IsProcessingMedia = false;
+        }
+
         /// <summary>
         /// Rebuild job
         /// </summary>

@@ -5,7 +5,7 @@
                 <a class="btn" ng-click="rebuild()" prevent-default>
                     <localize key="nexu_dashboardRebuild">Rebuild relations</localize>
                 </a>
-                <a class="btn" ng-click="getUnusedMedia()" prevent-default>
+                <a class="btn" ng-click="getUnusedMedia()" ng-disabled = "unusedMedia.IsProcessingMedia" prevent-default>
                     <localize key="nexu_dashboardUnusedMedia">Get unused media</localize>
                 </a>
                 <a class="btn" ng-click="deleteUnusedMedia()" ng-disabled="links.length == 0" prevent-default>
@@ -31,7 +31,7 @@
                 </a>
             </p>
         </div>
-        <div ng-show="links.length != 0">
+        <div ng-show="filteredMedia.length != 0">
             <table class="table">
                 <caption>Unused media</caption>
                 <thead>
@@ -44,7 +44,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="link in links">
+                    <tr ng-repeat="link in filteredMedia">
                         <td>{{$index + 1}}</td>
                         <td>{{link.Name}}</td>
                         <td>{{link.Path}}</td>

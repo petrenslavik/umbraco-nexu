@@ -7,9 +7,14 @@
             ItemsProcessed: 0
         };
 
-        $scope.links = [];
+        $scope.unusedMedia = {
+            IsProcessingMedia: false,
+            Data : []
+        };
+        $scope.filteredMedia = [],
         $scope.autoRefresh = true;
         $scope.exceptionListSource = null;
+        $scope.exceptionSources = [];
 
         $scope.preventDelete = Umbraco.Sys.ServerVariables.Nexu.PreventDelete;
         $scope.preventUnPublish = Umbraco.Sys.ServerVariables.Nexu.PreventUnPublish;
@@ -37,12 +42,28 @@
 
         $scope.getUnusedMedia = function () {
             nexuResource.getUnusedMedia()
+                .then(function () {
+                    $scope.getUnusedMediaStatus();
+                });
+            $timeout(function () { $scope.getUnusedMediaStatus() }, 500, true);
+        };
+
+        $scope.getUnusedMediaStatus = function() {
+            nexuResource.getUnusedMediaStatus()
                 .then(function ({ data }) {
-                    data.forEach((x) => {
-                        x.ToRemove = true;
+                    $scope.unusedMedia = data;
+                    data.Data.forEach((x) => {
                         x.Source = JSON.parse(x.Source).src;
+                        if ($scope.exceptionSources.indexOf(x.Source) > -1) {
+                            x.ToRemove = false;
+                        } else {
+                            x.ToRemove = true;
+                        }
                     });
-                    $scope.links = data;
+                    $scope.filteredMedia = data.Data;
+                    if ($scope.unusedMedia.IsProcessingMedia) {
+                        $timeout(function () { $scope.getUnusedMediaStatus() }, 5000, true);
+                    }
                 });
         };
 
@@ -72,9 +93,17 @@
 
         $scope.showContent = function ( fileContent, fileName ) {
             $scope.exceptionListSource = fileName;
-            console.log(content);
+            $scope.exceptionSources = fileContent.split(/\r\n|\n/);;
+            $scope.unusedMedia.Data.forEach((x) => {
+                if ($scope.exceptionSources.indexOf(x.Source) > -1) {
+                    x.ToRemove = false;
+                } else {
+                    x.ToRemove = true;
+                }
+            });
+            $scope.filteredMedia = $scope.unusedMedia.Data;
         }
 
         $scope.getRebuildStatus();
-
+        $scope.getUnusedMediaStatus();
     }]);
