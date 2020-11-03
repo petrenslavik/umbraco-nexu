@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <language alias="sv" intName="Swedish" localName="Svenska" lcid="" culture="sv-SE">
   <area alias="nexu">
-    <key alias="dashboardRebuild">Byggom nexu relationer</key>
-    <key alias="dashboardRebuildInProgress">Ombyggnad av nexu relationer är pågående</key>
+    <key alias="dashboardRebuild">Byggom relationer</key>
+    <key alias="dashboardRebuildInProgress">Ombyggnad av relationer är pågående</key>
     <key alias="dashboardItemsProcessed">noder bearbetade</key>
     <key alias="dashboardAutorefresh">Laddar om var 5:e sekund</key>
     <key alias="dashboardRefresh">Ladda om</key>

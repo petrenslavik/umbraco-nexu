@@ -41,7 +41,7 @@
         };
 
         $scope.getUnusedMedia = function () {
-            if (unusedMedia.IsProcessingMedia) {
+            if ($scope.unusedMedia.IsProcessingMedia) {
                 return;
             }
             nexuResource.getUnusedMedia()
@@ -76,7 +76,7 @@
         };
 
         $scope.deleteUnusedMedia = function () {
-            if (filteredMedia.length == 0 && unusedMedia.IsProcessingMedia) {
+            if ($scope.filteredMedia.length == 0 && $scope.unusedMedia.IsProcessingMedia) {
                 return;
             }
             let forDeleting = [];

@@ -12,7 +12,7 @@
                     Delete found media
                 </a>
                 <input class="hidden-input" id="exceptionListLoader" type="file" class="btn" on-read-file="showContent( fileContent, fileName )" >
-                    <label class="input-label btn" for="exceptionListLoader">Load exception list</label>
+                <label class="input-label btn" for="exceptionListLoader">Load exclusion list</label>
             </div> 
             <div class="input-source" ng-show="exceptionListSource">
                 {{exceptionListSource}}
@@ -20,7 +20,7 @@
         </div>
         <div ng-show="RebuildStatus.IsProcessing">
             <p>
-                <localize key="nexu_dashboardRebuildInProgress">Rebuilding nexu relations in progress</localize> ({{RebuildStatus.ItemsProcessed}} <localize key="nexu_dashboardItemsProcessed">items processed</localize>)
+                <localize key="nexu_dashboardRebuildInProgress">Rebuilding relations in progress</localize> ({{RebuildStatus.ItemsProcessed}} <localize key="nexu_dashboardItemsProcessed">items processed</localize>)
             </p>
             <p>
                 <input type="checkbox" ng-model="autoRefresh" ng-checked="autoRefresh" /> <localize key="nexu_dashboardAutorefresh">Auto-refresh every 5 seconds</localize>
