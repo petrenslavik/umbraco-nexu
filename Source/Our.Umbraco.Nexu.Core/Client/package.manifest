@@ -6,27 +6,27 @@
       "name": "Nexu relation viewer",
       "icon": "icon-axis-rotation",
       "editor": {
-        "view": "~/App_Plugins/Nexu/views/property-editor.html",
+        "view": "~/App_Plugins/Oski.Solutions.MediaRemove/views/property-editor.html",
         "valueType": "STRING",
         "isReadOnly": true
       }
     }
   ],
   "javascript": [
-    "~/App_Plugins/Nexu/interceptor.js",
-    "~/App_Plugins/Nexu/resource.js",
-    "~/App_Plugins/Nexu/controllers/base-delete-controller.js",
-    "~/App_Plugins/Nexu/controllers/content-delete-controller.js",
-    "~/App_Plugins/Nexu/controllers/media-delete-controller.js",
-    "~/App_Plugins/Nexu/controllers/unpublish-confirmation-controller.js",
-    "~/App_Plugins/Nexu/controllers/dashboard-controller.js",
-    "~/App_Plugins/Nexu/directives/nexuLinks.js",
-    "~/App_Plugins/Nexu/directives/nexuDescendantsWarning.js",
-    "~/App_Plugins/Nexu/directives/upload.js",
-    "~/App_Plugins/Nexu/controllers/property-editor-controller.js",
-    "~/App_Plugins/Nexu/controllers/confirmunpublish-controller.js"
+    "~/App_Plugins/Oski.Solutions.MediaRemove/interceptor.js",
+    "~/App_Plugins/Oski.Solutions.MediaRemove/resource.js",
+    "~/App_Plugins/Oski.Solutions.MediaRemove/controllers/base-delete-controller.js",
+    "~/App_Plugins/Oski.Solutions.MediaRemove/controllers/content-delete-controller.js",
+    "~/App_Plugins/Oski.Solutions.MediaRemove/controllers/media-delete-controller.js",
+    "~/App_Plugins/Oski.Solutions.MediaRemove/controllers/unpublish-confirmation-controller.js",
+    "~/App_Plugins/Oski.Solutions.MediaRemove/controllers/dashboard-controller.js",
+    "~/App_Plugins/Oski.Solutions.MediaRemove/directives/nexuLinks.js",
+    "~/App_Plugins/Oski.Solutions.MediaRemove/directives/nexuDescendantsWarning.js",
+    "~/App_Plugins/Oski.Solutions.MediaRemove/directives/upload.js",
+    "~/App_Plugins/Oski.Solutions.MediaRemove/controllers/property-editor-controller.js",
+    "~/App_Plugins/Oski.Solutions.MediaRemove/controllers/confirmunpublish-controller.js"
   ],
   "css": [
-    "~/App_Plugins/Nexu/nexu.css"
+    "~/App_Plugins/Oski.Solutions.MediaRemove/style.css"
   ]
 }

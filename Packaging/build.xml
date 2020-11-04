@@ -16,7 +16,7 @@
 	
 	 <!-- SHARED PROPERTIES -->
 	 <PropertyGroup>
-		<PackageName>Our.Umbraco.Nexu</PackageName>
+		<PackageName>Our.Umbraco.Oski.Solutions.MediaRemove</PackageName>
 		<MinUmbracoVersion>7.3.0</MinUmbracoVersion>
 		<Readme><![CDATA[After installing this package you will get a Nexu dashboard in the developer section. You can clik the "Rebuild Nexu Relations" button to parse your content for internal links]]></Readme>
 		<AuthorName>Dave Woestenborghs</AuthorName>
@@ -28,7 +28,7 @@
 	 
 	 <!-- NUGET ONLY PROPERTIES -->
 	  <PropertyGroup>
-		<PackageId>Our.Umbraco.Nexu</PackageId>		
+		<PackageId>Our.Umbraco.Oski.Solutions.MediaRemove</PackageId>		
 		<Copyright>Copyright &#169; Dave Woestenborghs and contributors.</Copyright>
 		<Owners>Dave Woestenborghs</Owners>
 		<Description>This package makes it possible to keep track of internal links in Umbraco</Description>
@@ -70,10 +70,10 @@
 	
 	<!-- PROJECTS TO BUILD -->
 	<ItemGroup>
-		<ProjectToBuild Include="$(CoreProjectDir)\Our.Umbraco.Nexu.Core.csproj" >
+		<ProjectToBuild Include="$(CoreProjectDir)\Our.Umbraco.Oski.Solutions.MediaRemove.Core.csproj" >
 			<Properties>Configuration=Release</Properties>
 		</ProjectToBuild>
-		<ProjectToBuild Include="$(ParserProjectDir)\Our.Umbraco.Nexu.Parsers.csproj" >
+		<ProjectToBuild Include="$(ParserProjectDir)\Our.Umbraco.Oski.Solutions.MediaRemove.Parsers.csproj" >
 			<Properties>Configuration=Release</Properties>
 		</ProjectToBuild>
 		<ProjectToBuild Include="$(CoreTestProjectDir)\Our.Umbraco.Nexu.Core.Tests.csproj" >

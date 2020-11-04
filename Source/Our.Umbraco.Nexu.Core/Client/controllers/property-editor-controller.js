@@ -1,5 +1,5 @@
-﻿angular.module('umbraco').controller('Our.Umbraco.Nexu.PropertyEditorController',
-    ['$scope', '$routeParams','appState', 'Our.Umbraco.Nexu.Resource',
+﻿angular.module('umbraco').controller('Our.Umbraco.Oski.Solutions.MediaRemove.PropertyEditorController',
+    ['$scope', '$routeParams', 'appState', 'Our.Umbraco.Oski.Solutions.MediaRemove.Resource',
         function ($scope, $routeParams, appState, nexuResource) {
 
             $scope.isCreate = false;

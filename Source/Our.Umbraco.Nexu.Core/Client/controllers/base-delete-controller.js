@@ -1,5 +1,5 @@
-﻿angular.module('umbraco').controller('Our.Umbraco.Nexu.BaseDeleteController',
-    ['$scope', '$controller', 'Our.Umbraco.Nexu.Resource',
+﻿angular.module('umbraco').controller('Our.Umbraco.Oski.Solutions.MediaRemove.BaseDeleteController',
+    ['$scope', '$controller', 'Our.Umbraco.Oski.Solutions.MediaRemove.Resource',
         function ($scope, $controller, nexuResource) {
             // inherit core delete controller
             if ($scope.isMedia) {

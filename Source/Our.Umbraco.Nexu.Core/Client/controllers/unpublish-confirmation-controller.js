@@ -1,4 +1,4 @@
-﻿angular.module('umbraco').controller('Our.Umbraco.Nexu.UnPublishConfirmationController',
+﻿angular.module('umbraco').controller('Our.Umbraco.Oski.Solutions.MediaRemove.UnPublishConfirmationController',
     ['$scope','notificationsService',
     function ($scope, notificationsService) {
 

@@ -1,6 +1,6 @@
-﻿angular.module('umbraco').controller('Our.Umbraco.Nexu.ConfirmUnpublishController',
+﻿angular.module('umbraco').controller('Our.Umbraco.Oski.Solutions.MediaRemove.ConfirmUnpublishController',
     [
-        '$scope', '$controller', 'Our.Umbraco.Nexu.Resource', 'editorState',
+        '$scope', '$controller', 'Our.Umbraco.Oski.Solutions.MediaRemove.Resource', 'editorState',
         function($scope, $controller, nexuResource, editorState) {
             angular.extend(this, $controller('Umbraco.Notifications.ConfirmUnpublishController', { $scope: $scope }));
 

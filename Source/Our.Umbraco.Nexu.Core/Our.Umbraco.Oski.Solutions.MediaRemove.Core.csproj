@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{216BFF27-5E0B-4C1F-B54F-553CB4F6ECC9}</ProjectGuid>
+    <ProjectGuid>{EC661867-E5C0-400E-B11E-0272D345C1A4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Our.Umbraco.Nexu.Parsers</RootNamespace>
-    <AssemblyName>Our.Umbraco.Nexu.Parsers</AssemblyName>
+    <RootNamespace>Our.Umbraco.Nexu.Core</RootNamespace>
+    <AssemblyName>Our.Umbraco.Nexu.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -163,6 +163,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.3.0\lib\System.Data.SqlServerCe.dll</HintPath>
@@ -274,41 +275,63 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GridEditorParsers\Community\DocTypeGridEditorParser.cs" />
-    <Compile Include="GridEditorParsers\Community\LeBlenderGriddEditorParser.cs" />
-    <Compile Include="GridEditorParsers\Core\MediaGridEditorParser.cs" />
-    <Compile Include="GridEditorParsers\Core\RteGridEditorParser.cs" />
-    <Compile Include="PropertyParsers\Community\ArchetypeParser.cs" />
-    <Compile Include="PropertyParsers\Community\ContentListParser.cs" />
-    <Compile Include="PropertyParsers\Community\StackedContentParser.cs" />
-    <Compile Include="PropertyParsers\Community\NestedContentParser.cs" />
-    <Compile Include="PropertyParsers\Community\RjpMultiUrlPickerParser.cs" />
-    <Compile Include="PropertyParsers\Community\VortoParser.cs" />
-    <Compile Include="PropertyParsers\Core\ContentPickerParser.cs" />
-    <Compile Include="PropertyParsers\Core\GridParser.cs" />
-    <Compile Include="PropertyParsers\Core\LegacyMediaPickerParser.cs" />
-    <Compile Include="PropertyParsers\Core\MediaPicker2Parser.cs" />
-    <Compile Include="PropertyParsers\Core\MultiNodeTreePicker2MediaParser.cs" />
-    <Compile Include="PropertyParsers\Core\MultiNodeTreePicker2ContentParser.cs" />
-    <Compile Include="PropertyParsers\Core\MultiNodeTreePickerMediaParser.cs" />
-    <Compile Include="PropertyParsers\Core\MultiNodeTreePickerContentParser.cs" />
-    <Compile Include="PropertyParsers\Core\MultipleMediaPickerParser.cs" />
-    <Compile Include="PropertyParsers\Core\NestedContentParser.cs" />
-    <Compile Include="PropertyParsers\Core\RelatedLinks2Parser.cs" />
-    <Compile Include="PropertyParsers\Core\RelatedLinksParser.cs" />
-    <Compile Include="PropertyParsers\Core\RichTextEditorParser.cs" />
-    <Compile Include="ParserHelper.cs" />
+    <Compile Include="BootStrapper.cs" />
+    <Compile Include="Constants\AppSettings.cs" />
+    <Compile Include="Constants\RelationTypes.cs" />
+    <Compile Include="Enums\LinkedEntityType.cs" />
+    <Compile Include="Interfaces\IGridEditorParser.cs" />
+    <Compile Include="Interfaces\INexuService.cs" />
+    <Compile Include="Interfaces\ILinkedEntity.cs" />
+    <Compile Include="Interfaces\IPropertyParser.cs" />
+    <Compile Include="Mapping\Profiles\NexuMappingProfile.cs" />
+    <Compile Include="Mapping\TypeConverters\RelationsToRelatedDocumentsConverter.cs" />
+    <Compile Include="Models\LinkedDocumentEntity.cs" />
+    <Compile Include="Models\LinkedMediaEntity.cs" />
+    <Compile Include="Models\MediaItemWrapper.cs" />
+    <Compile Include="Models\PropertyWithParser.cs" />
+    <Compile Include="Models\RebuildStatus.cs" />
+    <Compile Include="Models\RelatedDocument.cs" />
+    <Compile Include="Models\UnusedMedia.cs" />
+    <Compile Include="NexuContext.cs" />
+    <Compile Include="NexuService.cs" />
+    <Compile Include="ObjectResolution\GridEditorParserResolver.cs" />
+    <Compile Include="ObjectResolution\PluginManagerExtensions.cs" />
+    <Compile Include="ObjectResolution\PropertyParserResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Our.Umbraco.Nexu.Core\Our.Umbraco.Nexu.Core.csproj">
-      <Project>{ec661867-e5c0-400e-b11e-0272d345c1a4}</Project>
-      <Name>Our.Umbraco.Nexu.Core</Name>
-    </ProjectReference>
+    <Compile Include="WebApi\NexuApiController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Client\package.manifest" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Client\controllers\base-delete-controller.js" />
+    <Content Include="Client\controllers\confirmunpublish-controller.js" />
+    <Content Include="Client\controllers\content-delete-controller.js" />
+    <Content Include="Client\controllers\dashboard-controller.js" />
+    <Content Include="Client\controllers\property-editor-controller.js" />
+    <Content Include="Client\directives\nexuDescendantsWarning.js" />
+    <Content Include="Client\directives\upload.js" />
+    <Content Include="Client\lang\nl-NL.xml" />
+    <Content Include="Client\lang\en-US.xml" />
+    <Content Include="Client\lang\en-GB.xml" />
+    <Content Include="Client\lang\sv-SE.xml" />
+    <Content Include="Client\style.css" />
+    <Content Include="Client\views\confirmunpublish.html" />
+    <Content Include="Client\views\dashboard.html" />
+    <Content Include="Client\controllers\media-delete-controller.js" />
+    <Content Include="Client\controllers\unpublish-confirmation-controller.js" />
+    <Content Include="Client\directives\nexuLinks.js" />
+    <Content Include="Client\interceptor.js" />
+    <Content Include="Client\resource.js" />
+    <Content Include="Client\views\content-delete.html" />
+    <Content Include="Client\views\property-editor.html" />
+    <Content Include="Client\views\media-delete.html" />
+    <Content Include="Client\views\nexu-descendants-warning.html" />
+    <Content Include="Client\views\nexu-links.html" />
+    <Content Include="Client\views\unpublish-confirmation.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />

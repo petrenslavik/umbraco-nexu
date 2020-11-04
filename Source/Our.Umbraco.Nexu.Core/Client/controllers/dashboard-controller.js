@@ -1,5 +1,5 @@
-﻿angular.module('umbraco').controller('Our.Umbraco.Nexu.DashboardController',
-    ['$scope', 'Our.Umbraco.Nexu.Resource', '$timeout', function ($scope, nexuResource, $timeout) {
+﻿angular.module('umbraco').controller('Our.Umbraco.Oski.Solutions.MediaRemove.DashboardController',
+    ['$scope', 'Our.Umbraco.Oski.Solutions.MediaRemove.Resource', '$timeout', function ($scope, nexuResource, $timeout) {
         $scope.isLoading = true;
         $scope.RebuildStatus = {
             IsProcessing: true,
