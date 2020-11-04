@@ -120,10 +120,10 @@
   <Target Name="PrepareFiles" DependsOnTargets="Compile">
     <ItemGroup>
       <!-- Shared -->
-      <BinFiles Include="$(CoreProjectDir)\bin\$(BuildConfig)\Our.Umbraco.Nexu.Core.dll" />
-	  <BinFiles Include="$(ParserProjectDir)\Bin\$(BuildConfig)\Our.Umbraco.Nexu.Parsers.dll" />
-      <PdbFiles Include="$(CoreProjectDir)\bin\$(BuildConfig)\Our.Umbraco.Nexu.Core.pdb" />
-	  <PdbFiles Include="$(ParserProjectDir)\bin\$(BuildConfig)\Our.Umbraco.Nexu.Parsers.pdb" />
+      <BinFiles Include="$(CoreProjectDir)\bin\$(BuildConfig)\Our.Umbraco.Oski.Solutions.MediaRemove.Core.dll" />
+	  <BinFiles Include="$(ParserProjectDir)\Bin\$(BuildConfig)\Our.Umbraco.Oski.Solutions.MediaRemove.Parsers.dll" />
+      <PdbFiles Include="$(CoreProjectDir)\bin\$(BuildConfig)\Our.Umbraco.Oski.Solutions.MediaRemove.Core.pdb" />
+	  <PdbFiles Include="$(ParserProjectDir)\bin\$(BuildConfig)\Our.Umbraco.Oski.Solutions.MediaRemove.Parsers.pdb" />
       <AppPluginFiles Include="$(CoreProjectDir)\Client\**\*.*" />
      
       <DashboardXDTInstallFile Include="$(MSBuildProjectDirectory)\transforms\Dashboard.config.install.xdt" />     
@@ -139,14 +139,14 @@
 	  <!-- Umbraco -->
 	  <Copy SourceFiles="@(BinFiles)" DestinationFolder="$(BuildUmbDir)\bin" />
 	  <Copy SourceFiles="@(PackageFile)" DestinationFolder="$(BuildUmbDir)" />
-	  <Copy SourceFiles="@(AppPluginFiles)" DestinationFiles="@(AppPluginFiles->'$(BuildUmbDir)\App_Plugins\Nexu\%(RecursiveDir)%(Filename)%(Extension)')" />
+	  <Copy SourceFiles="@(AppPluginFiles)" DestinationFiles="@(AppPluginFiles->'$(BuildUmbDir)\App_Plugins\Oski.Solutions.MediaRemove\%(RecursiveDir)%(Filename)%(Extension)')" />
 
 		<!--NuGet -->
 	  <Copy SourceFiles="@(BinFiles)" DestinationFolder="$(BuildNuGetDir)\lib\net45" />
 	  <Copy SourceFiles="@(PdbFiles)" DestinationFolder="$(BuildNuGetDir)\lib\net45" />
 	  <Copy SourceFiles="@(DashboardXDTInstallFile)" DestinationFolder="$(BuildNuGetDir)\Content\Config" />
 	  <Copy SourceFiles="@(DashboardXDTUninstallFile)" DestinationFolder="$(BuildNuGetDir)\Content\Config" />
-	  <Copy SourceFiles="@(AppPluginFiles)" DestinationFiles="@(AppPluginFiles->'$(BuildNuGetDir)\Content\App_Plugins\Nexu\%(RecursiveDir)%(Filename)%(Extension)')" />
+	  <Copy SourceFiles="@(AppPluginFiles)" DestinationFiles="@(AppPluginFiles->'$(BuildNuGetDir)\Content\App_Plugins\Oski.Solutions.MediaRemove\%(RecursiveDir)%(Filename)%(Extension)')" />
 	  <Copy SourceFiles="@(NuSpecFile)" DestinationFolder="$(BuildNuGetDir)" />
 
   </Target>
