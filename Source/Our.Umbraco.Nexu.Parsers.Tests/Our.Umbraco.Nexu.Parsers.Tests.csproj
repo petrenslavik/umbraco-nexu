@@ -326,11 +326,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Our.Umbraco.Nexu.Core\Our.Umbraco.Oski.Solutions.MediaRemove.Core.csproj">
+    <ProjectReference Include="..\Our.Umbraco.Oski.Solutions.MediaRemove.Core\Our.Umbraco.Oski.Solutions.MediaRemove.Core.csproj">
       <Project>{ec661867-e5c0-400e-b11e-0272d345c1a4}</Project>
       <Name>Our.Umbraco.Oski.Solutions.MediaRemove.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Our.Umbraco.Nexu.Parsers\Our.Umbraco.Oski.Solutions.MediaRemove.Parsers.csproj">
+    <ProjectReference Include="..\Our.Umbraco.Oski.Solutions.MediaRemove.Parsers\Our.Umbraco.Oski.Solutions.MediaRemove.Parsers.csproj">
       <Project>{216bff27-5e0b-4c1f-b54f-553cb4f6ecc9}</Project>
       <Name>Our.Umbraco.Oski.Solutions.MediaRemove.Parsers</Name>
     </ProjectReference>
