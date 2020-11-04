@@ -62,8 +62,8 @@
 		<BuildUmbDir>$(MSBuildProjectDirectory)\UmbracoBuild</BuildUmbDir>
 		<BuildNuGetDir>$(MSBuildProjectDirectory)\NugetBuild</BuildNuGetDir>
 		<ArtifactsDir>$(RootDir)\artifacts</ArtifactsDir>
-		<CoreProjectDir>$(RootDir)\Source\Our.Umbraco.Nexu.Core</CoreProjectDir>
-		<ParserProjectDir>$(RootDir)\Source\Our.Umbraco.Nexu.Parsers</ParserProjectDir>
+		<CoreProjectDir>$(RootDir)\Source\Our.Umbraco.Oski.Solutions.MediaRemove.Core</CoreProjectDir>
+		<ParserProjectDir>$(RootDir)\Source\Our.Umbraco.Oski.Solutions.MediaRemoveu.Parsers</ParserProjectDir>
 		<CoreTestProjectDir>$(RootDir)\Source\Our.Umbraco.Nexu.Core.Tests</CoreTestProjectDir>
 		<ParserTestProjectDir>$(RootDir)\Source\Our.Umbraco.Nexu.Parsers.Tests</ParserTestProjectDir>
 	</PropertyGroup>
