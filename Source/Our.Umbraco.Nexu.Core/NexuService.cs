@@ -369,10 +369,14 @@
 
         public bool IsBuilt()
         {
-            var built = relationService.HasRelations(relationService.GetRelationTypeByAlias(RelationTypes.DocumentToDocumentAlias));
-            built = built ||
-                    relationService.HasRelations(
-                        relationService.GetRelationTypeByAlias(RelationTypes.DocumentToMediaAlias));
+            var docToDoc = relationService.GetRelationTypeByAlias(RelationTypes.DocumentToDocumentAlias);
+            var docToMedia = relationService.GetRelationTypeByAlias(RelationTypes.DocumentToMediaAlias);
+            if (docToDoc == null || docToMedia == null)
+            {
+                return false;
+            }
+            var built = relationService.HasRelations(docToDoc);
+            built = built || relationService.HasRelations(docToMedia);
             return built;
         }
 

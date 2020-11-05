@@ -27,7 +27,7 @@
                     return $http.get(Umbraco.Sys.ServerVariables.Nexu.GetUnusedMediaStatus);
                 },
                 getBuiltStatus : function() {
-                    return $http.get(Umbraco.Sys.ServerVariables.IsBuilt.GetUnusedMediaStatus);
+                    return $http.get(Umbraco.Sys.ServerVariables.Nexu.IsBuilt);
                 }
             };
         });

@@ -3,7 +3,7 @@
         <p>After installation you should call once "Rebuild relations". You can remove unused media by pressing "GetUnusedMedia", wait for operation to complete and press "Delete found media". You can load exclusion list to not remove required media items which has no reference in content. Exclusion list is .txt file, which contains urls of media items.The URL should look like this "/media/1127/logo.png". All operations except deleting are made in background so you can switch or close tab.</p>
         <div ng-hide="RebuildStatus.IsProcessing" class="nexu-container">
             <div class="btn-group">
-                <a class="btn" ng-click="rebuild()" prevent-default>
+                <a class="btn" ng-click="rebuild()" ng-disabled="IsBuiltRelations" prevent-default>
                     <localize key="nexu_dashboardRebuild">Rebuild relations</localize>
                 </a>
                 <a class="btn" ng-click="getUnusedMedia()" ng-disabled="unusedMedia.IsProcessingMedia" prevent-default>

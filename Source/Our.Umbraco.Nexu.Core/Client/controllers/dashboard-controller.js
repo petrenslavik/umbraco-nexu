@@ -32,6 +32,9 @@
         };
 
         $scope.rebuild = function () {
+            if ($scope.IsBuiltRelations) {
+                return;
+            }
             nexuResource.rebuild(-1)
                 .then(function (result) {
                     $scope.getRebuildStatus();
