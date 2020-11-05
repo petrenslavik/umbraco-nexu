@@ -111,9 +111,9 @@ namespace Our.Umbraco.Nexu.Core
             urlDictionairy.Add("DeleteUnusedMedia", urlHelper.GetUmbracoApiService<NexuApiController>("DeleteUnusedMedia", null));
             urlDictionairy.Add("GetUnusedMediaStatus", urlHelper.GetUmbracoApiService<NexuApiController>("GetUnusedMediaStatus", null));
 
-            if (!e.Keys.Contains("Oski.Solutions.MediaRemove"))
+            if (!e.Keys.Contains("OskiMediaRemove"))
             {
-                e.Add("Oski.Solutions.MediaRemove", urlDictionairy);
+                e.Add("OskiMediaRemove", urlDictionairy);
             }
         }
 

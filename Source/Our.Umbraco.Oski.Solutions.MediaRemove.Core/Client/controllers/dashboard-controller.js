@@ -16,8 +16,8 @@
         $scope.exceptionListSource = null;
         $scope.exceptionSources = [];
 
-        $scope.preventDelete = Umbraco.Sys.ServerVariables.Nexu.PreventDelete;
-        $scope.preventUnPublish = Umbraco.Sys.ServerVariables.Nexu.PreventUnPublish;
+        $scope.preventDelete = Umbraco.Sys.ServerVariable.OskiMediaRemove.PreventDelete;
+        $scope.preventUnPublish = Umbraco.Sys.ServerVariables.OskiMediaRemove.PreventUnPublish;
 
         $scope.getRebuildStatus = function () {
             nexuResource.getRebuildStatus()

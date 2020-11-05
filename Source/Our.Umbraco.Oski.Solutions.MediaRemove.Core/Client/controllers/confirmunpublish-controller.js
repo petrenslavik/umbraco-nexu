@@ -4,7 +4,7 @@
         function($scope, $controller, nexuResource, editorState) {
             angular.extend(this, $controller('Umbraco.Notifications.ConfirmUnpublishController', { $scope: $scope }));
 
-            $scope.preventUnPublish = Umbraco.Sys.ServerVariables.Nexu.PreventUnPublish;
+            $scope.preventUnPublish = Umbraco.Sys.ServerVariables.OskiMediaRemove.PreventUnPublish;
             $scope.allowUnPublish = true;
 
             $scope.links = {};

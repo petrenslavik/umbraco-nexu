@@ -8,7 +8,7 @@
                 angular.extend(this, $controller('Umbraco.Editors.Content.DeleteController', { $scope: $scope }));
             }
 
-            $scope.preventDelete = Umbraco.Sys.ServerVariables.Nexu.PreventDelete;
+            $scope.preventDelete = Umbraco.Sys.ServerVariables.OskiMediaRemove.PreventDelete;
             $scope.allowDelete = true;
            
 
