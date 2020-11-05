@@ -77,7 +77,7 @@
         /// </summary>
         protected override void FreezeResolution()
         {
-            var assembly = Assembly.Load("Our.Umbraco.Nexu.Parsers");
+            var assembly = Assembly.Load("Our.Umbraco.Oski.Solutions.MediaRemove.Parsers");
             this.parsers =
                 TypeFinder.FindClassesOfType<Interfaces.IPropertyParser>(new List<Assembly> { assembly }).ToList();
 
