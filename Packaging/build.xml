@@ -19,20 +19,20 @@
 		<PackageName>Our.Umbraco.Oski.Solutions.MediaRemove</PackageName>
 		<MinUmbracoVersion>7.3.0</MinUmbracoVersion>
 		<Readme><![CDATA[After installing you can remove all media that isn't un use un content. To prevent removing not referenced media items use exclusion list with urls of media items]]></Readme>
-		<AuthorName>Dave Woestenborghs</AuthorName>
-		<AuthorUrl>https://github.com/dawoe/umbraco-nexu/graphs/contributors</AuthorUrl>
+		<AuthorName>Oski Solutions</AuthorName>
+		<AuthorUrl></AuthorUrl>
 		<PackageLicenseName>MIT license</PackageLicenseName>
 		<PackageLicenseUrl>http://www.opensource.org/licenses/mit-license.php</PackageLicenseUrl>
-		<ProjectUrl>https://github.com/dawoe/umbraco-nexu</ProjectUrl>
+		<ProjectUrl>https://oski.site/</ProjectUrl>
 	 </PropertyGroup>
 	 
 	 <!-- NUGET ONLY PROPERTIES -->
 	  <PropertyGroup>
 		<PackageId>Our.Umbraco.Oski.Solutions.MediaRemove</PackageId>		
-		<Copyright>Copyright &#169; Dave Woestenborghs and contributors.</Copyright>
-		<Owners>Dave Woestenborghs</Owners>
-		<Description>This package makes it possible to keep track of internal links in Umbraco</Description>
-		<IconUrl>https://github.com/dawoe/umbraco-nexu/raw/develop/icon.png</IconUrl>
+		<Copyright></Copyright>
+		<Owners></Owners>
+		<Description>After installing you can remove all media that isn't un use un content. To prevent removing not referenced media items use exclusion list with urls of media items</Description>
+		<IconUrl></IconUrl>
 		<Tags>umbraco</Tags>
 		<Language>en-GB</Language>
 		<RequireLicenseAcceptance>false</RequireLicenseAcceptance>
