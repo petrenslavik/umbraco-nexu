@@ -23,7 +23,7 @@
         /// </returns>
         internal static IEnumerable<System.Type> ResolvePropertyParsers(this PluginManager pluginmanager)
         {
-            var assembly = Assembly.Load("Our.Umbraco.Nexu.Parsers");
+            var assembly = Assembly.Load("Our.Umbraco.Oski.Solutions.MediaRemove.Parsers");
             return pluginmanager.ResolveTypes<IPropertyParser>(specificAssemblies: new List<Assembly> { assembly });
         }
 
@@ -38,7 +38,7 @@
         /// </returns>
         internal static IEnumerable<System.Type> ResolveGridEditorParsers(this PluginManager pluginmanager)
         {
-            var assembly = Assembly.Load("Our.Umbraco.Nexu.Parsers");
+            var assembly = Assembly.Load("Our.Umbraco.Oski.Solutions.MediaRemove.Parsers");
             return pluginmanager.ResolveTypes<IGridEditorParser>(specificAssemblies: new List<Assembly> { assembly });
         }
     }
