@@ -367,6 +367,15 @@
             }
         }
 
+        public bool IsBuilt()
+        {
+            var built = relationService.HasRelations(relationService.GetRelationTypeByAlias(RelationTypes.DocumentToDocumentAlias));
+            built = built ||
+                    relationService.HasRelations(
+                        relationService.GetRelationTypeByAlias(RelationTypes.DocumentToMediaAlias));
+            return built;
+        }
+
         /// <summary>
         /// Creates a relation type.
         /// </summary>

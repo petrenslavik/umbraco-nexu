@@ -6,7 +6,7 @@
             ItemName: '',
             ItemsProcessed: 0
         };
-
+        $scope.IsBuiltRelations = false;
         $scope.unusedMedia = {
             IsProcessingMedia: false,
             Data : []
@@ -39,6 +39,12 @@
 
             $timeout(function () { $scope.getRebuildStatus() }, 500, true);
         };
+
+        $scope.getBuiltStatus = function() {
+            nexuResource.getBuiltStatus().then(function(result) {
+                $scope.IsBuiltRelations = result.IsBuilt;
+            });
+        }
 
         $scope.getUnusedMedia = function () {
             if ($scope.unusedMedia.IsProcessingMedia) {
@@ -117,4 +123,5 @@
 
         $scope.getRebuildStatus();
         $scope.getUnusedMediaStatus();
+        $scope.getBuiltStatus();
     }]);

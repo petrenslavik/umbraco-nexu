@@ -75,7 +75,7 @@
         void SaveLinkedEntitiesAsRelations(int contentid, Dictionary<string, IEnumerable<ILinkedEntity>> linkedEntities);
 
         /// <summary>
-        /// Parses content and saves linked entitites
+        /// Parses content and saves linked entities
         /// </summary>
         /// <param name="content">
         /// The content.
@@ -86,5 +86,8 @@
         /// Sets up the needed the relation types
         /// </summary>
         void SetupRelationTypes();
+
+        bool IsBuilt();
+
     }
 }

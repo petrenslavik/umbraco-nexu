@@ -199,7 +199,7 @@ namespace Our.Umbraco.Nexu.Core.WebApi
         [HttpGet]
         public HttpResponseMessage GetUnusedMediaStatus()
         {
-            return this.Request.CreateResponse(HttpStatusCode.OK, new { NexuContext.Current.IsProcessingMedia, Data =  NexuContext.Current.UnusedMedia.Select(x=>x.Model)});
+            return this.Request.CreateResponse(HttpStatusCode.OK, new { NexuContext.Current.IsProcessingMedia, Data = NexuContext.Current.UnusedMedia.Select(x => x.Model) });
         }
 
         [HttpPost]
@@ -210,6 +210,12 @@ namespace Our.Umbraco.Nexu.Core.WebApi
                 mediaService.Delete(mediaService.GetById(id));
             }
             return new HttpResponseMessage(HttpStatusCode.OK);
+        }
+
+        [HttpGet]
+        public HttpResponseMessage IsBuilt()
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, new { IsBuilt = nexuService.IsBuilt() });
         }
         private void GetUnusedMediaItems(MediaItemWrapper root)
         {
