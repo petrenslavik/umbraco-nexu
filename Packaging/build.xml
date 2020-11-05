@@ -18,7 +18,7 @@
 	 <PropertyGroup>
 		<PackageName>Our.Umbraco.Oski.Solutions.MediaRemove</PackageName>
 		<MinUmbracoVersion>7.3.0</MinUmbracoVersion>
-		<Readme><![CDATA[After installing this package you will get a Nexu dashboard in the developer section. You can clik the "Rebuild Nexu Relations" button to parse your content for internal links]]></Readme>
+		<Readme><![CDATA[After installing you can remove all media that isn't un use un content. To prevent removing not referenced media items use exclusion list with urls of media items]]></Readme>
 		<AuthorName>Dave Woestenborghs</AuthorName>
 		<AuthorUrl>https://github.com/dawoe/umbraco-nexu/graphs/contributors</AuthorUrl>
 		<PackageLicenseName>MIT license</PackageLicenseName>
@@ -63,7 +63,7 @@
 		<BuildNuGetDir>$(MSBuildProjectDirectory)\NugetBuild</BuildNuGetDir>
 		<ArtifactsDir>$(RootDir)\artifacts</ArtifactsDir>
 		<CoreProjectDir>$(RootDir)\Source\Our.Umbraco.Oski.Solutions.MediaRemove.Core</CoreProjectDir>
-		<ParserProjectDir>$(RootDir)\Source\Our.Umbraco.Oski.Solutions.MediaRemoveu.Parsers</ParserProjectDir>
+		<ParserProjectDir>$(RootDir)\Source\Our.Umbraco.Oski.Solutions.MediaRemove.Parsers</ParserProjectDir>
 		<CoreTestProjectDir>$(RootDir)\Source\Our.Umbraco.Nexu.Core.Tests</CoreTestProjectDir>
 		<ParserTestProjectDir>$(RootDir)\Source\Our.Umbraco.Nexu.Parsers.Tests</ParserTestProjectDir>
 	</PropertyGroup>
