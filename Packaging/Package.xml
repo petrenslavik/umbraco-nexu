@@ -31,12 +31,12 @@
 	<Actions>
 		<Action runat="install"  
 			alias="addDashboardSection" 
-			dashboardAlias="Our.Umbraco.Oski.Solutions.MediaRemove">
+			dashboardAlias="Our.Umbraco.OSKI.solutions.MediaRemove">
 			 <section>
 				<areas>
 				  <area>developer</area>
 				</areas>
-				<tab caption="Oski.Solutions.MediaRemove">
+				<tab caption="OSKI.solutions.MediaRemove">
 				  <control>/App_Plugins/Nexu/views/dashboard.html</control>
 				</tab>
 			 </section>

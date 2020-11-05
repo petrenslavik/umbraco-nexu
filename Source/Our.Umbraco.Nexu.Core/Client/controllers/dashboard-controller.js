@@ -6,7 +6,7 @@
             ItemName: '',
             ItemsProcessed: 0
         };
-        $scope.IsBuiltRelations = false;
+        $scope.isBuiltRelations = false;
         $scope.unusedMedia = {
             IsProcessingMedia: false,
             Data : []
@@ -32,20 +32,20 @@
         };
 
         $scope.rebuild = function () {
-            if ($scope.IsBuiltRelations) {
+            if ($scope.isBuiltRelations) {
                 return;
             }
             nexuResource.rebuild(-1)
                 .then(function (result) {
                     $scope.getRebuildStatus();
+                    $scope.isBuiltRelations = true;
                 });
-
             $timeout(function () { $scope.getRebuildStatus() }, 500, true);
         };
 
         $scope.getBuiltStatus = function() {
-            nexuResource.getBuiltStatus().then(function(result) {
-                $scope.IsBuiltRelations = result.IsBuilt;
+            nexuResource.getBuiltStatus().then(function ({ data }) {
+                $scope.isBuiltRelations = data.IsBuilt;
             });
         }
 
